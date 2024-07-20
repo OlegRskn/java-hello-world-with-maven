@@ -1,0 +1,22 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build_job:
+  stage: build
+  script:
+    - echo ${CI_COMMIT_SHORT_SHA} "Building the project..."
+
+test_job:
+  stage: test
+  script:
+    - echo ${CI_COMMIT_SHORT_SHA} "Running tests..."
+
+deploy_job:
+  stage: deploy
+  script:
+    - echo ${CI_COMMIT_SHORT_SHA} "Deploying the project..."
+
+  only:
+    - main
